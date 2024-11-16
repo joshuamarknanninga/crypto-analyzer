@@ -1,6 +1,7 @@
+
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CryptoAnalyzer",
+  "name": "Crypto Analyzer PWA",
   "icons": [
     {
       "src": "favicon.ico",
