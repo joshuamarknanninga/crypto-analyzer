@@ -1,24 +1,31 @@
 // src/components/CryptoSelector.js
 import React from 'react';
-import { Dropdown } from 'semantic-ui-react';
+import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
 const options = [
-  { key: 'bitcoin', value: 'bitcoin', text: 'Bitcoin' },
-  { key: 'ethereum', value: 'ethereum', text: 'Ethereum' },
-  { key: 'dogecoin', value: 'dogecoin', text: 'Dogecoin' },
-  { key: 'shiba-inu', value: 'shiba-inu', text: 'Shiba Inu' },
+  { value: 'bitcoin', label: 'Bitcoin' },
+  { value: 'ethereum', label: 'Ethereum' },
+  { value: 'dogecoin', label: 'Dogecoin' },
+  { value: 'shiba-inu', label: 'Shiba Inu' },
   // Add more options as needed
 ];
 
 const CryptoSelector = ({ selected, onChange }) => (
-  <Dropdown
-    placeholder='Select Cryptocurrency'
-    fluid
-    selection
-    options={options}
-    value={selected}
-    onChange={(e, { value }) => onChange(value)}
-  />
+  <FormControl fullWidth>
+    <InputLabel id="crypto-select-label">Select Cryptocurrency</InputLabel>
+    <Select
+      labelId="crypto-select-label"
+      value={selected}
+      label="Select Cryptocurrency"
+      onChange={(e) => onChange(e.target.value)}
+    >
+      {options.map((option) => (
+        <MenuItem key={option.value} value={option.value}>
+          {option.label}
+        </MenuItem>
+      ))}
+    </Select>
+  </FormControl>
 );
 
 export default CryptoSelector;
